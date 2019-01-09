@@ -38,7 +38,7 @@ public class sercert
 			{
 				int temp = a[start];
 				a[start] = a[end];
-				a[end] = key;
+				a[end] = temp;
 			}
 		}
 		if(low < start)       //跑动的是start和end，因此应该是(low,start)和(end,high)这两个递归
