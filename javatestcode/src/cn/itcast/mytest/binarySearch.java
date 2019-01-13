@@ -7,7 +7,7 @@ public class binarySearch
 	public static void main(String[] args)
 	{
 		int index = binarySearch(0, a.length, findvalue);     //下标
-		System.out.println(index);
+		System.out.println(index); 
 	}
 	public static int binarySearch(int left,int right,int key)
 	{
