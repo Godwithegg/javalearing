@@ -34,7 +34,7 @@ public class sercert
 			{
 				start++;
 			}
-			if(key <= a[start])
+			if(key <= a[start])    
 			{
 				int temp = a[start];
 				a[start] = a[end];
@@ -42,7 +42,7 @@ public class sercert
 			}
 		}
 		if(low < start)       //跑动的是start和end，因此应该是(low,start)和(end,high)这两个递归
-		quickSort(a, low, start-1);
+		quickSort(a, low, start-1);       //递归求解
 		if(end < high)
 		quickSort(a, end+1, high);
 	}
