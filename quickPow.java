@@ -1,6 +1,5 @@
 package cn.itcast.mytest;
 
-import java.io.File;
 
 public class sercert
 {
