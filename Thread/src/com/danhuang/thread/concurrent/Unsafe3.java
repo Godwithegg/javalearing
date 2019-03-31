@@ -44,6 +44,14 @@ class Drawing extends Thread {
 
 	@Override
 	public void run() {
+		if (account.money - drawingMoney < 0) {
+			return;
+		}
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		account.money -= drawingMoney;
 		packetTotal += drawingMoney;
 		System.out.println(this.getName() + "-->ÕË»§Óà¶îÎª" + account.money);
