@@ -5,6 +5,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * 了解
+ * 创建线程的方式3
+ * @author danhuang
+ *
+ */
 public class CdownLoader implements Callable<Boolean> {
 
 	private String url;// 远程路径
