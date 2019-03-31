@@ -1,44 +1,21 @@
 package com.danhuang.thread.concurrent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * 线程不安全
- * 数据有负数
- * 数据有重复
+ * 线程不安全：操作容器
  * @author danhuang
  *
  */
-public class Unsafe2 implements Runnable {
-	// 票数
-	private int ticketNums = 10;
-	private boolean flag = true;
-
-	@Override
-	public void run() {
-		while (true) {
-			test();
-		}
-	}
-
-	public void test() {
-		if (ticketNums < 0) {
-			flag = false;
-			return;
-		}
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.out.println(Thread.currentThread().getName() + "-->" + ticketNums--);
-	}
-
+public class Unsafe2 {
 	public static void main(String[] args) {
-		// 一份资源
-		Unsafe2 web = new Unsafe2();
-		// 多个代理
-		new Thread(web, "马畜").start();
-		new Thread(web, "码农").start();
-		new Thread(web, "马币").start();
-
+		List<String> list = new ArrayList<>();
+		for(int i=0;i<100;i++) {
+			new Thread(()->{
+				list.add(Thread.currentThread().getName());
+			}).start();
+		}
+		System.out.println(list.size());
 	}
 }
