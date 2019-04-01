@@ -1,12 +1,12 @@
 package com.danhuang.thread.concurrent;
 
 /**
- * 线程安全：取钱
+ * 线程不安全：取钱 ，锁的对象不对
  * 
  * @author danhuang
  *
  */
-public class Synchronized3 {
+public class SynchronizedUnsafe3 {
 	public static void main(String[] args) {
 		// 账户
 		Account1 account = new Account1(100, "结婚礼金");
