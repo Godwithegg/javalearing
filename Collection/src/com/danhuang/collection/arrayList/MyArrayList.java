@@ -1,7 +1,7 @@
 package com.danhuang.collection.arrayList;
 
 /**
- * ×Ô¶¨ÒåÒ»¸öArrayList£¬Ìå»áµ×²ãÔ­Àí
+ * è‡ªå®šä¹‰ä¸€ä¸ªArrayListï¼Œä½“ä¼šåº•å±‚åŸç†
  * 
  * @author danhuang
  *

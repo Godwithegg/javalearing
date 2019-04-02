@@ -3,7 +3,7 @@ package com.danhuang.collection.arrayList;
 import javax.management.RuntimeErrorException;
 
 /**
- * ×Ô¶¨ÒåÒ»¸öArrayList£¬Ìå»áµ×²ãÔ­Àí Ôö¼ÓÉ¾³ı
+ * è‡ªå®šä¹‰ä¸€ä¸ªArrayListï¼Œä½“ä¼šåº•å±‚åŸç† å¢åŠ åˆ é™¤
  * 
  * @author danhuang
  *
@@ -19,7 +19,7 @@ public class MyArrayList5<E> {
 
 	public MyArrayList5(int capacity) {
 		if (capacity < 0) {
-			throw new RuntimeException("ÈİÆ÷µÄÈİÁ¿²»ÄÜÎª¸º");
+			throw new RuntimeException("å®¹å™¨çš„å®¹é‡ä¸èƒ½ä¸ºè´Ÿ");
 		} else if (capacity == 0) {
 			elementData = new Object[DEFAULT_CAPACITY];
 		} else {
@@ -28,9 +28,9 @@ public class MyArrayList5<E> {
 	}
 
 	public void add(E element) {
-		// Ê²Ã´Ê±ºòÀ©Èİ
+		// ä»€ä¹ˆæ—¶å€™æ‰©å®¹
 		if (size == elementData.length) {
-			// À©Èİ²Ù×÷,ÕâÀï+ÓÅÏÈ¼¶±È>>¸ß
+			// æ‰©å®¹æ“ä½œ,è¿™é‡Œ+ä¼˜å…ˆçº§æ¯”>>é«˜
 			Object[] newArray = new Object[elementData.length + (elementData.length >> 1)];// 10->10+10/2=15
 			System.arraycopy(elementData, 0, newArray, 0, elementData.length);
 			elementData = newArray;
@@ -49,18 +49,18 @@ public class MyArrayList5<E> {
 	}
 
 	public void checkRange(int index) {
-		// ÅĞ¶ÏË÷ÒıÊÇ·ñºÏ·¨[0,size)
+		// åˆ¤æ–­ç´¢å¼•æ˜¯å¦åˆæ³•[0,size)
 		if (index < 0 || index > size - 1) {
-			// ²»ºÏ·¨
-			throw new RuntimeException("Ë÷Òı²»ºÏ·¨" + index);
+			// ä¸åˆæ³•
+			throw new RuntimeException("ç´¢å¼•ä¸åˆæ³•" + index);
 		}
 	}
 
 	public void remove(E element) {
-		// element,½«ËüºÍËùÓĞÔªËØ°¤¸ö±È½Ï£¬»ñµÃµÚÒ»¸ö±È½ÏÎªtrueµÄ£¬·µ»Ø
+		// element,å°†å®ƒå’Œæ‰€æœ‰å…ƒç´ æŒ¨ä¸ªæ¯”è¾ƒï¼Œè·å¾—ç¬¬ä¸€ä¸ªæ¯”è¾ƒä¸ºtrueçš„ï¼Œè¿”å›
 		for (int i = 0; i < size; i++) {
-			if (element.equals(get(i))) {// ÈİÆ÷ÖĞËùÓĞµÄ±È½Ï²Ù×÷¶¼ÊÇÓÃequals¶ø²»ÊÇ==
-				// ½«¸ÃÔªËØ´Ó´Ë´¦ÒÆ³ı
+			if (element.equals(get(i))) {// å®¹å™¨ä¸­æ‰€æœ‰çš„æ¯”è¾ƒæ“ä½œéƒ½æ˜¯ç”¨equalsè€Œä¸æ˜¯==
+				// å°†è¯¥å…ƒç´ ä»æ­¤å¤„ç§»é™¤
 				remove(i);
 			}
 		}

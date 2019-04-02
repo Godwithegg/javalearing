@@ -1,7 +1,7 @@
 package com.danhuang.collection.arrayList;
 
 /**
- * 认识集合中的泛型
+ * 璁よ瘑闆嗗悎涓殑娉涘瀷
  * 
  * @author danhuang
  *
@@ -9,8 +9,8 @@ package com.danhuang.collection.arrayList;
 public class Generic {
 	public static void main(String[] args) {
 		MyCollection<String> col = new MyCollection<String>();
-		col.set("哇偶", 0);
-		col.set("啊哈", 1);
+		col.set("鍝囧伓", 0);
+		col.set("鍟婂搱", 1);
 		System.out.println(col.get(1));
 	}
 }

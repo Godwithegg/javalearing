@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ÈÏÊ¶¼¯ºÏÖĞºÍË÷ÒıÏà¹ØµÄ·½·¨
+ * è®¤è¯†é›†åˆä¸­å’Œç´¢å¼•ç›¸å…³çš„æ–¹æ³•
  * @author danhuang
  *
  */
@@ -25,19 +25,19 @@ public class MyList {
 		
 		System.out.println("list1:"+list1);
 
-//		Çó²¢¼¯
+//		æ±‚å¹¶é›†
 //		list1.addAll(list2);
 //		System.out.println("list1 use addall:"+list1);
 
-//		ÒÆ³ö½»¼¯
+//		ç§»å‡ºäº¤é›†
 //		list1.removeAll(list2);
 //		System.out.println("list1 use removeall:"+list1);
 
-//		È¡½»¼¯
+//		å–äº¤é›†
 //		list1.retainAll(list2);
 //		System.out.println("list1 use retainall:"+list1);
 
-//		list1ÊÇ·ñ°üº¬list2ÖĞËùÓĞÔªËØ
+//		list1æ˜¯å¦åŒ…å«list2ä¸­æ‰€æœ‰å…ƒç´ 
 //		list1.containsAll(list2);
 //		System.out.println("list1 use containsall:"+list1);
 		
@@ -51,26 +51,26 @@ public class MyList {
 		list.add("d");
 		
 		System.out.println(list);
-		//ÔÚ2µÄÎ»ÖÃ²åÈëÒ»¸öÄÚÈİ
-		list.add(2,"ÎÒ");
+		//åœ¨2çš„ä½ç½®æ’å…¥ä¸€ä¸ªå†…å®¹
+		list.add(2,"æˆ‘");
 		System.out.println(list);
 		
-		//ÒÆ³öÎ»ÖÃ2µÄÔªËØ
+		//ç§»å‡ºä½ç½®2çš„å…ƒç´ 
 		list.remove(2);
 		System.out.println(list);
 		
-		//Ìæ»»Î»ÖÃ2µÄÔªËØ
-		list.set(2, "µ°»Æ");
+		//æ›¿æ¢ä½ç½®2çš„å…ƒç´ 
+		list.set(2, "è›‹é»„");
 		System.out.println(list);
 		
-		//»ñµÃÎ»ÖÃ2µÄÔªËØ
+		//è·å¾—ä½ç½®2çš„å…ƒç´ 
 		System.out.println(list.get(2));
 		
-		//·µ»ØÖ¸¶¨ÔªËØµÚÒ»´Î³öÏÖµÄÎ»ÖÃ,²»°üº¬Ôò·µ»Ø-1
+		//è¿”å›æŒ‡å®šå…ƒç´ ç¬¬ä¸€æ¬¡å‡ºç°çš„ä½ç½®,ä¸åŒ…å«åˆ™è¿”å›-1
 		int firstIndex = list.indexOf("d");
 		System.out.println(firstIndex);
 		
-		//·µ»ØÖ¸¶¨ÔªËØ×îºóÒ»´Î³öÏÖµÄÎ»ÖÃ,²»°üº¬Ôò·µ»Ø-1
+		//è¿”å›æŒ‡å®šå…ƒç´ æœ€åä¸€æ¬¡å‡ºç°çš„ä½ç½®,ä¸åŒ…å«åˆ™è¿”å›-1
 		int lastIndex = list.lastIndexOf("d");
 		System.out.println(lastIndex);
 	}

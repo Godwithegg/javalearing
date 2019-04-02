@@ -1,8 +1,8 @@
 package com.danhuang.collection.arrayList;
 
 /**
- * ×Ô¶¨ÒåÒ»¸öArrayList£¬Ìå»áµ×²ãÔ­Àí
- * Ôö¼ÓÊı×éÀ©Èİ
+ * è‡ªå®šä¹‰ä¸€ä¸ªArrayListï¼Œä½“ä¼šåº•å±‚åŸç†
+ * å¢åŠ æ•°ç»„æ‰©å®¹
  * 
  * @author danhuang
  *
@@ -21,9 +21,9 @@ public class MyArrayList3<E> {
 	}
 
 	public void add(E element) {
-		//Ê²Ã´Ê±ºòÀ©Èİ
+		//ä»€ä¹ˆæ—¶å€™æ‰©å®¹
 		if(size == elementData.length) {
-			//À©Èİ²Ù×÷,ÕâÀï+ÓÅÏÈ¼¶±È>>¸ß
+			//æ‰©å®¹æ“ä½œ,è¿™é‡Œ+ä¼˜å…ˆçº§æ¯”>>é«˜
 			Object[] newArray = new Object[elementData.length + (elementData.length>>1)];//10->10+10/2=15
 			System.arraycopy(elementData, 0, newArray, 0, elementData.length);
 			elementData = newArray;
