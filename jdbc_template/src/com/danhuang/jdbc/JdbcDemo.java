@@ -22,7 +22,10 @@ public class JdbcDemo
 	{
 
 		//1注册驱动
-		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+		//DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+		//开发中遵循原则：编译时不依赖，运行时才依赖，解决该问题用反射创建
+		Class.forName("com.mysql.jdbc.Driver");
+		
 		//2获取连接
 		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybtis","root","123456");
 		//3获取操作数据库的预处理对象
