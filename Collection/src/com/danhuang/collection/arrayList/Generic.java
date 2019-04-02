@@ -1,4 +1,4 @@
-package com.danhuang.collection;
+package com.danhuang.collection.arrayList;
 
 /**
  * 认识集合中的泛型

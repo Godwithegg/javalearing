@@ -1,4 +1,4 @@
-package com.danhuang.collection;
+package com.danhuang.collection.arrayList;
 
 import java.util.ArrayList;
 import java.util.List;
