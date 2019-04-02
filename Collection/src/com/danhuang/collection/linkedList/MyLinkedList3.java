@@ -1,7 +1,7 @@
 package com.danhuang.collection.linkedList;
 
 /**
- * ¶¨ÒåÒ»¸öÁ´±í Ôö¼Óremove
+ * å®šä¹‰ä¸€ä¸ªé“¾è¡¨ å¢åŠ remove
  * 
  * @author danhuang
  *
@@ -13,7 +13,7 @@ public class MyLinkedList3 {
 
 	public Object get(int index) {
 		if (index < 0 || index > size - 1) {
-			throw new RuntimeException("Ë÷ÒıÊı×Ö²»ºÏ·¨:" + index);
+			throw new RuntimeException("ç´¢å¼•æ•°å­—ä¸åˆæ³•:" + index);
 		}
 		Node node = getNode(index);
 		return node != null ? node.element : null;
@@ -86,11 +86,11 @@ public class MyLinkedList3 {
 			if (down != null) {
 				down.previous = up;
 			}
-			// ±»É¾³ıµÄÊÇµÚÒ»¸öÔªËØÊ±
+			// è¢«åˆ é™¤çš„æ˜¯ç¬¬ä¸€ä¸ªå…ƒç´ æ—¶
 			if (index == 0) {
 				first = down;
 			}
-			// ±»É¾³ıµÄÊÇ×îºóÒ»¸öÔªËØÊ±
+			// è¢«åˆ é™¤çš„æ˜¯æœ€åä¸€ä¸ªå…ƒç´ æ—¶
 			if (index == size - 1) {
 				last = up;
 			}
@@ -106,7 +106,7 @@ public class MyLinkedList3 {
 			return "[]";
 		}
 		sb.append("[");
-		// °¤¸ö±éÀúÁ´±íÖĞµÄÔªËØ
+		// æŒ¨ä¸ªéå†é“¾è¡¨ä¸­çš„å…ƒç´ 
 		Node head = first;
 		while (head != null) {
 			sb.append(head.element + ",");
@@ -131,7 +131,7 @@ public class MyLinkedList3 {
 		System.out.println(link);
 		link.remove(1);
 		System.out.println(link);
-		link.add(5, "µ°»Æ");
+		link.add(5, "è›‹é»„");
 		System.out.println(link);
 	}
 }

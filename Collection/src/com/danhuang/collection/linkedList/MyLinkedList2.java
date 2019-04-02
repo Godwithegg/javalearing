@@ -1,7 +1,7 @@
 package com.danhuang.collection.linkedList;
 
 /**
- * ¶¨ÒåÒ»¸öÁ´±í Ôö¼Óget·½·¨
+ * å®šä¹‰ä¸€ä¸ªé“¾è¡¨ å¢åŠ getæ–¹æ³•
  * 
  * @author danhuang
  *
@@ -13,7 +13,7 @@ public class MyLinkedList2 {
 
 	public Object get(int index) {
 		if (index < 0 || index > size - 1) {
-			throw new RuntimeException("Ë÷ÒıÊı×Ö²»ºÏ·¨:" + index);
+			throw new RuntimeException("ç´¢å¼•æ•°å­—ä¸åˆæ³•:" + index);
 		}
 		Node temp = null;
 		if (index < (size >> 1)) {
@@ -53,7 +53,7 @@ public class MyLinkedList2 {
 		StringBuffer sb = new StringBuffer();
 
 		sb.append("[");
-		// °¤¸ö±éÀúÁ´±íÖĞµÄÔªËØ
+		// æŒ¨ä¸ªéå†é“¾è¡¨ä¸­çš„å…ƒç´ 
 		Node head = first;
 		while (head != null) {
 			sb.append(head.element + ",");

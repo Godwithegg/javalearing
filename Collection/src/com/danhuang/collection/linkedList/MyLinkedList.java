@@ -1,7 +1,7 @@
 package com.danhuang.collection.linkedList;
 
 /**
- * ¶¨ÒåÒ»¸öÁ´±í
+ * å®šä¹‰ä¸€ä¸ªé“¾è¡¨
  * @author danhuang
  *
  */
@@ -30,7 +30,7 @@ public class MyLinkedList {
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append("[");
-		//°¤¸ö±éÀúÁ´±íÖĞµÄÔªËØ
+		//æŒ¨ä¸ªéå†é“¾è¡¨ä¸­çš„å…ƒç´ 
 		Node head = first;
 		while(head != null) {
 			sb.append(head.element+",");

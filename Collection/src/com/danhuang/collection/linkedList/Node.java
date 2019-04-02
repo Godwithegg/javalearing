@@ -1,9 +1,9 @@
 package com.danhuang.collection.linkedList;
 
 public class Node {
-	Node previous;// ÉÏÒ»¸ö½Úµã
-	Node next; // ÏÂÒ»¸ö½Úµã
-	Object element; // ÔªËØÊı¾İ
+	Node previous;// ä¸Šä¸€ä¸ªèŠ‚ç‚¹
+	Node next; // ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
+	Object element; // å…ƒç´ æ•°æ®
 
 	public Node(Node previous, Node next, Object element) {
 		super();

@@ -1,7 +1,7 @@
 package com.danhuang.collection.linkedList;
 
 /**
- * ¶¨ÒåÒ»¸öÁ´±í Ôö¼ÓĞ¡µÄ·â×°£¬Ôö¼Ó·ºĞÍ
+ * å®šä¹‰ä¸€ä¸ªé“¾è¡¨ å¢åŠ å°çš„å°è£…ï¼Œå¢åŠ æ³›å‹
  * 
  * @author danhuang
  *
@@ -19,7 +19,7 @@ public class MyLinkedList4<E> {
 
 	private void checkRange(int index) {
 		if (index < 0 || index > size - 1) {
-			throw new RuntimeException("Ë÷ÒıÊı×Ö²»ºÏ·¨:" + index);
+			throw new RuntimeException("ç´¢å¼•æ•°å­—ä¸åˆæ³•:" + index);
 		}
 	}
 
@@ -58,7 +58,7 @@ public class MyLinkedList4<E> {
 
 	public void add(int index, E element) {
 		if(index < 0 || index > size) {
-			throw new RuntimeException("²»ÄÜ²åÈë¸ÃÎ»ÖÃ:"+index);
+			throw new RuntimeException("ä¸èƒ½æ’å…¥è¯¥ä½ç½®:"+index);
 		}
 		Node node = new Node(element);
 		if (index == size) {
@@ -96,11 +96,11 @@ public class MyLinkedList4<E> {
 			if (down != null) {
 				down.previous = up;
 			}
-			// ±»É¾³ıµÄÊÇµÚÒ»¸öÔªËØÊ±
+			// è¢«åˆ é™¤çš„æ˜¯ç¬¬ä¸€ä¸ªå…ƒç´ æ—¶
 			if (index == 0) {
 				first = down;
 			}
-			// ±»É¾³ıµÄÊÇ×îºóÒ»¸öÔªËØÊ±
+			// è¢«åˆ é™¤çš„æ˜¯æœ€åä¸€ä¸ªå…ƒç´ æ—¶
 			if (index == size - 1) {
 				last = up;
 			}
@@ -116,7 +116,7 @@ public class MyLinkedList4<E> {
 			return "[]";
 		}
 		sb.append("[");
-		// °¤¸ö±éÀúÁ´±íÖĞµÄÔªËØ
+		// æŒ¨ä¸ªéå†é“¾è¡¨ä¸­çš„å…ƒç´ 
 		Node head = first;
 		while (head != null) {
 			sb.append(head.element + ",");
@@ -141,7 +141,7 @@ public class MyLinkedList4<E> {
 		System.out.println(link);
 		link.remove(1);
 		System.out.println(link);
-		link.add(5, "µ°»Æ");
+		link.add(5, "è›‹é»„");
 		System.out.println(link);
 	}
 }
