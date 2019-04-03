@@ -1,4 +1,4 @@
-package com.danhuang.map;
+package com.danhuang.map.hashmap;
 
 import java.util.HashMap;
 import java.util.Map;

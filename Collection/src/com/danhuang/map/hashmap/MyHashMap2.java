@@ -1,44 +1,25 @@
-package com.danhuang.map;
+package com.danhuang.map.hashmap;
 
 /**
- * 自定义一个hashmap 增加泛型
+ * 自定义一个hashmap 实现了toString方法，方便查看map中的键值对信息
  * 
  * @author danhuang
  *
  */
-public class MyHashMap4<K,V> {
-	Node1[] table;// 位桶数组。bucket array
+public class MyHashMap2 {
+	Node[] table;// 位桶数组。bucket array
 	int size; // 存放的键值对的个数
 
-	public MyHashMap4() {
-		table = new Node1[16]; // 长度一般定义成2的整数幂
+	public MyHashMap2() {
+		table = new Node[16]; // 长度一般定义成2的整数幂
 	}
 
-	public V get(K key) {
-
-		int hash = myHash(key.hashCode(), table.length);
-
-		if (table[hash] != null) {
-			Node1 temp = table[hash];
-			while (temp != null) {
-				if (temp.key.equals(key)) {
-					return (V)temp.value;
-				}
-				temp = temp.next;
-			}
-		}
-
-		return null;
-	}
-
-	public void put(K key, V value) {
-		// 如果要完善，还需要考虑数据扩容！！！
-
-		Node1 node = new Node1();
+	public void put(Object key, Object value) {
+		Node node = new Node();
 		node.hash = myHash(key.hashCode(), table.length);
 		node.key = key;
 		node.value = value;
-		Node1 temp = table[node.hash];
+		Node temp = table[node.hash];
 		if (temp == null) {
 			// 数组为空则直接将新节点放进去
 			table[node.hash] = node;
@@ -74,7 +55,7 @@ public class MyHashMap4<K,V> {
 		StringBuilder sb = new StringBuilder("{");
 		// 遍历数组
 		for (int i = 0; i < table.length; i++) {
-			Node1 temp = table[i];
+			Node temp = table[i];
 			// 遍历链表
 			while (temp != null) {
 				sb.append(temp.key + ":" + temp.value + ",");
@@ -86,20 +67,12 @@ public class MyHashMap4<K,V> {
 	}
 
 	public static void main(String[] args) {
-		MyHashMap4<Integer,String> m = new MyHashMap4<>();
+		MyHashMap2 m = new MyHashMap2();
 		m.put(10, "aa");
 		m.put(20, "bb");
 		m.put(30, "cc");
 		m.put(53, "gg");
-		System.out.println(m.get(53));
 		System.out.println(m);
 	}
 
-}
-
-class Node1<K, V> {
-	int hash;
-	K key;
-	V value;
-	Node1 next;
 }

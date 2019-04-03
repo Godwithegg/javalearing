@@ -1,20 +1,40 @@
-package com.danhuang.map;
+package com.danhuang.map.hashmap;
 
 /**
- * 自定义一个hashmap 实现了toString方法，方便查看map中的键值对信息
+ * 自定义一个hashmap 
+ * 实现get方法，根据键对象获得对应的值对象
  * 
  * @author danhuang
  *
  */
-public class MyHashMap2 {
+public class MyHashMap3 {
 	Node[] table;// 位桶数组。bucket array
 	int size; // 存放的键值对的个数
 
-	public MyHashMap2() {
+	public MyHashMap3() {
 		table = new Node[16]; // 长度一般定义成2的整数幂
 	}
 
+	public Object get(Object key) {
+
+		int hash = myHash(key.hashCode(), table.length);
+
+		if (table[hash] != null) {
+			Node temp = table[hash];
+			while (temp != null) {
+				if (temp.key.equals(key)) {
+					return temp.value;
+				}
+				temp = temp.next;
+			}
+		}
+
+		return null;
+	}
+
 	public void put(Object key, Object value) {
+		// 如果要完善，还需要考虑数据扩容！！！
+
 		Node node = new Node();
 		node.hash = myHash(key.hashCode(), table.length);
 		node.key = key;
@@ -67,11 +87,12 @@ public class MyHashMap2 {
 	}
 
 	public static void main(String[] args) {
-		MyHashMap2 m = new MyHashMap2();
+		MyHashMap3 m = new MyHashMap3();
 		m.put(10, "aa");
 		m.put(20, "bb");
 		m.put(30, "cc");
 		m.put(53, "gg");
+		System.out.println(m.get(53));
 		System.out.println(m);
 	}
 

@@ -1,4 +1,4 @@
-package com.danhuang.map;
+package com.danhuang.map.hashmap;
 
 /**
  * 自定义一个hashmap 实现了put方法增加键值对，并解决了键重复的时候覆盖相应的节点
