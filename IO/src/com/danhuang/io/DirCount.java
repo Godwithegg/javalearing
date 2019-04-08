@@ -25,9 +25,9 @@ public class DirCount {
 
 	public static void main(String[] args) throws IOException {
 
-		String path = "D:/github/javalearning/javalearing/IO";
+		String dir = "D:/github/javalearning/javalearing/IO";
 
-		DirCount dirCount = new DirCount(path);
+		DirCount dirCount = new DirCount(dir);
 		System.out.println(dirCount.getSize());
 	}
 
