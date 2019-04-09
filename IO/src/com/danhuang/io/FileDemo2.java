@@ -3,7 +3,7 @@ package com.danhuang.io;
 import java.io.File;
 
 /**
- * ¹¹½¨File¶ÔÏó
+ * ï¿½ï¿½ï¿½ï¿½Fileï¿½ï¿½ï¿½ï¿½
  * 
  * @author danhuang
  *
@@ -12,13 +12,13 @@ public class FileDemo2 {
 	public static void main(String[] args) {
 		
 		String path = "D:/github/javalearning/javalearing/IO/cat.png";
-		//1.¹¹½¨file¶ÔÏó
+		//1.ï¿½ï¿½ï¿½ï¿½fileï¿½ï¿½ï¿½ï¿½
 		File src = new File(path);
 		System.out.println(src.length());
-		//2.¹¹½¨file¶ÔÏó
+		//2.ï¿½ï¿½ï¿½ï¿½fileï¿½ï¿½ï¿½ï¿½
 		src = new File("D:/github/javalearning/javalearing","IO/cat.png");
 		System.out.println(src.length());
-		//3.¹¹½¨file¶ÔÏó
+		//3.ï¿½ï¿½ï¿½ï¿½fileï¿½ï¿½ï¿½ï¿½
 		src = new File(new File("D:/github/javalearning/javalearing"),"IO/cat.png");
 		System.out.println(src.length());
 	}
