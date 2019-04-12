@@ -11,57 +11,57 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 /**
- * ÊìÏ¤SAXµÄ½âÎöÁ÷³Ì
+ * ç†Ÿæ‚‰SAXçš„è§£æžæµç¨‹
  * 
  * @author danhuang
  *
  */
 public class XmlSAX {
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-		// SAX½âÎö
-		// 1.»ñÈ¡½âÎö¹¤³§
+		// SAXè§£æž
+		// 1.èŽ·å–è§£æžå·¥åŽ‚
 		SAXParserFactory factory = SAXParserFactory.newInstance();
-		// 2.´Ó½âÎö¹¤³§»ñÈ¡½âÎöÆ÷
+		// 2.ä»Žè§£æžå·¥åŽ‚èŽ·å–è§£æžå™¨
 		SAXParser parse = factory.newSAXParser();
-		// 3.±àÐ´´¦ÀíÆ÷
-		// 4.¼ÓÔØÎÄµµDocument×¢²á´¦ÀíÆ÷
+		// 3.ç¼–å†™å¤„ç†å™¨
+		// 4.åŠ è½½æ–‡æ¡£Documentæ³¨å†Œå¤„ç†å™¨
 		PersonHandler handler = new PersonHandler();
-		// 5.½âÎö
+		// 5.è§£æž
 		parse.parse(
 				Thread.currentThread().getContextClassLoader().getResourceAsStream("com/danhuang/server/basic/p.xml"),
 				handler);
-		// 4.±àÐ´´¦ÀíÆ÷
+		// 4.ç¼–å†™å¤„ç†å™¨
 	}
 }
 
 class PHandler extends DefaultHandler {
 	@Override
 	public void startDocument() throws SAXException {
-		System.out.println("½âÎöÎÄµµ¿ªÊ¼");
+		System.out.println("è§£æžæ–‡æ¡£å¼€å§‹");
 	}
 
 	@Override
 	public void endDocument() throws SAXException {
-		System.out.println("½âÎöÎÄµµ½áÊø");
+		System.out.println("è§£æžæ–‡æ¡£ç»“æŸ");
 	}
 
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-		System.out.println(qName + "-->½âÎö¿ªÊ¼");
+		System.out.println(qName + "-->è§£æžå¼€å§‹");
 	}
 
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
-		System.out.println(qName + "-->½âÎö½áÊø");
+		System.out.println(qName + "-->è§£æžç»“æŸ");
 	}
 
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		String contents = new String(ch, start, length).trim();
 		if(contents.length() > 0) {
-			System.out.println("ÄÚÈÝÎª" + "-->" + contents);
+			System.out.println("å†…å®¹ä¸º" + "-->" + contents);
 		}else {
-			System.out.println("ÄÚÈÝÎª" + "--> ¿Õ");
+			System.out.println("å†…å®¹ä¸º" + "--> ç©º");
 		}
 	}
 }

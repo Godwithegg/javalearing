@@ -11,27 +11,27 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 /**
- * ÊìÏ¤SAXµÄ½âÎöÁ÷³Ì
+ * ç†Ÿæ‚‰SAXçš„è§£ææµç¨‹
  * 
  * @author danhuang
  *
  */
 public class XmlSAX2 {
 	public static void main(String[] args) throws Exception {
-		// SAX½âÎö
-		// 1.»ñÈ¡½âÎö¹¤³§
+		// SAXè§£æ
+		// 1.è·å–è§£æå·¥å‚
 		SAXParserFactory factory = SAXParserFactory.newInstance();
-		// 2.´Ó½âÎö¹¤³§»ñÈ¡½âÎöÆ÷
+		// 2.ä»è§£æå·¥å‚è·å–è§£æå™¨
 		SAXParser parse = factory.newSAXParser();
-		// 3.±àĞ´´¦ÀíÆ÷
-		// 4.¼ÓÔØÎÄµµDocument×¢²á´¦ÀíÆ÷
+		// 3.ç¼–å†™å¤„ç†å™¨
+		// 4.åŠ è½½æ–‡æ¡£Documentæ³¨å†Œå¤„ç†å™¨
 		WebHandler handler = new WebHandler();
-		// 5.½âÎö
+		// 5.è§£æ
 		parse.parse(Thread.currentThread().getContextClassLoader()
 				.getResourceAsStream("com/danhuang/server/basic/servlet/web.xml"), handler);
-		// »ñÈ¡Êı¾İ
+		// è·å–æ•°æ®
 		WebContext context = new WebContext(handler.getEntitys(), handler.getMappings());
-		//¼ÙÉèÄãÊäÈëÁË /login
+		//å‡è®¾ä½ è¾“å…¥äº† /login
 		String className = context.getClz("/login");
 		Class clz = Class.forName(className);
 		Servlet servlet = (Servlet)clz.getConstructor().newInstance();
@@ -63,7 +63,7 @@ class WebHandler extends DefaultHandler {
 
 	private Mapping mapping;
 	private boolean isMapping = false;
-	private String tag;// ´æ´¢²Ù×÷µÄ±êÇ©
+	private String tag;// å­˜å‚¨æ“ä½œçš„æ ‡ç­¾
 
 	@Override
 	public void startDocument() throws SAXException {
@@ -94,14 +94,14 @@ class WebHandler extends DefaultHandler {
 				mappings.add(mapping);
 			}
 		}
-		tag = null;// tag¶ªÆúµô
+		tag = null;// tagä¸¢å¼ƒæ‰
 	}
 
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		String contents = new String(ch, start, length).trim();
-		if (null != tag) { // ´¦ÀíÁË¿Õ
-			if (isMapping) {// ²Ù×÷servlet-mapping
+		if (null != tag) { // å¤„ç†äº†ç©º
+			if (isMapping) {// æ“ä½œservlet-mapping
 				if (tag.equals("servlet-name")) {
 					mapping.setName(contents);
 				} else if (tag.equals("url-pattern")) {
@@ -109,7 +109,7 @@ class WebHandler extends DefaultHandler {
 						mapping.addPattern(contents);
 					}
 				}
-			} else {// ²Ù×÷servlet
+			} else {// æ“ä½œservlet
 				if (tag.equals("servlet-name")) {
 					entity.setName(contents);
 				} else if (tag.equals("servlet-class")) {

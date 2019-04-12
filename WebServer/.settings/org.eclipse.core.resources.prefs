@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/com/danhuang/server/basic=UTF-8
+encoding//src/com/danhuang/server/basic/ReflectDemo.java=UTF-8
+encoding//src/com/danhuang/server/basic/XmlSAX.java=UTF-8
+encoding//src/com/danhuang/server/basic/XmlSAX2.java=UTF-8
+encoding//src/com/danhuang/server/basic/servlet/WebContext.java=UTF-8
+encoding//src/com/danhuang/server/basic/servlet/XmlSAX2.java=UTF-8
+encoding//src/com/danhuang/server/http/Server.java=UTF-8
+encoding//src/com/danhuang/server/http/Server2.java=UTF-8
+encoding//src/com/danhuang/server/http/Server3.java=UTF-8
+encoding//src/com/danhuang/server/http/Server4.java=UTF-8
+encoding//src/com/danhuang/server/http/Server5.java=UTF-8
+encoding/<project>=UTF-8

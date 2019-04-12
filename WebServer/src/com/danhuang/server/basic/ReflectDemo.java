@@ -3,8 +3,8 @@ package com.danhuang.server.basic;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * ·´Éä 1¡¢»ñÈ¡Class¶ÔÏó ÈıÖÖ·½Ê½£ºClass.forName("ÍêÕûÂ·¾¶") 
- * 2¡¢¿ÉÒÔ¶¯Ì¬´´½¨¶ÔÏó
+ * åå°„ 1ã€è·å–Classå¯¹è±¡ ä¸‰ç§æ–¹å¼ï¼šClass.forName("å®Œæ•´è·¯å¾„") 
+ * 2ã€å¯ä»¥åŠ¨æ€åˆ›å»ºå¯¹è±¡
  * clz.getConstructor.newInstance()
  * @author danhuang
  *
@@ -13,19 +13,19 @@ public class ReflectDemo {
 	public static void main(String[] args)
 			throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException, NoSuchMethodException, SecurityException {
-		// ÈıÖÖ·½Ê½
-		// 1¡¢¶ÔÏó.getClass()
+		// ä¸‰ç§æ–¹å¼
+		// 1ã€å¯¹è±¡.getClass()
 		Class clz = new Iphone().getClass();
-		// 2¡¢Àà.class()
+		// 2ã€ç±».class()
 		clz = Iphone.class;
-		// 3¡¢Class.forName("°üÃû.ÀàÃû")
+		// 3ã€Class.forName("åŒ…å.ç±»å")
 		clz = Class.forName("com.danhuang.server.basic.Iphone");
 
-		// ´´½¨¶ÔÏó
-		Iphone iphone = (Iphone) clz.newInstance();// ²»ÍÆ¼ö
+		// åˆ›å»ºå¯¹è±¡
+		Iphone iphone = (Iphone) clz.newInstance();// ä¸æ¨è
 		System.out.println(iphone);
 
-		Iphone iphone2 = (Iphone) clz.getConstructor().newInstance();// ÍÆ¼ö
+		Iphone iphone2 = (Iphone) clz.getConstructor().newInstance();// æ¨è
 		System.out.println(iphone2);
 	}
 }

@@ -16,11 +16,11 @@ public class WebContext {
 	public WebContext(List<Entity> entitys, List<Mapping> mappings) {
 		this.entitys = entitys;
 		this.mappings = mappings;
-		//将entityList专成对应的map
+		//灏唀ntityList涓撴垚瀵瑰簲鐨刴ap
 		for(Entity entity:entitys) {
 			entityMap.put(entity.getName(), entity.getClz());
 		}
-		//将entity的List转成了对应map
+		//灏唀ntity鐨凩ist杞垚浜嗗搴攎ap
 		for(Mapping mapping:mappings) {
 			for(String pattern:mapping.getPatterns()) {
 				mappingMap.put(pattern,mapping.getName());
@@ -28,7 +28,7 @@ public class WebContext {
 		}
 	}
 	/**
-	 * 通过url路径找到对应的class
+	 * 閫氳繃url璺緞鎵惧埌瀵瑰簲鐨刢lass
 	 * @param pattern
 	 * @return
 	 */
