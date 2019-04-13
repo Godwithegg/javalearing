@@ -25,6 +25,8 @@ public class Demo3{
 			Field f = clz.getDeclaredField("studentName");
 			StudentField sField = f.getAnnotation(StudentField.class);
 			System.out.println(sField.columnName()+"-->"+sField.type()+"-->"+sField.length());
+			
+			//根据获得的表名字段的信息，拼出DDL语句，使用JDBC执行这个SQL，在数据库中生成相关的表
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
