@@ -3,7 +3,7 @@ package com.danhuang.thread.state;
 import com.danhuang.thread.shareresource.Web12306;
 
 /**
- * sleep模拟网络延时，放大了发生问题的可能性
+ * sleep模拟网络延时，放大了发生问题的可能性 
  * @author danhuang
  *
  */
