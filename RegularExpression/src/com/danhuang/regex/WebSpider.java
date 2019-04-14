@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 /**
  * 网络爬虫取出数据
  * 获得页面所有的超链接
- * 市面上有较好的爬虫软件：wget...
+ * 市面上有较好的爬虫软件：wget
  * 
  * @author danhuang
  *
