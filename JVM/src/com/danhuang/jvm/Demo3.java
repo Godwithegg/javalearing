@@ -1,8 +1,8 @@
 package com.danhuang.jvm;
 
 /**
- * ²âÊÔ×Ô¶¨ÒåµÄFileSystemClassLoader
- * ±»Á½¸öÀà¼ÓÔØÆ÷¼ÓÔØµÄÍ¬Ò»¸öÀà£¬JVM²»ÈÏÎªÊÇÏàÍ¬µÄÀà
+ * æµ‹è¯•è‡ªå®šä¹‰çš„FileSystemClassLoader
+ * è¢«ä¸¤ä¸ªç±»åŠ è½½å™¨åŠ è½½çš„åŒä¸€ä¸ªç±»ï¼ŒJVMä¸è®¤ä¸ºæ˜¯ç›¸åŒçš„ç±»
  * @author danhuang
  *
  */
@@ -21,10 +21,10 @@ public class Demo3 {
 		System.out.println(c1);
 		
 		System.out.println(c1.hashCode() == c2.hashCode());
-		System.out.println(c1.hashCode() == c3.hashCode());//±»Á½¸öÀà¼ÓÔØÆ÷¼ÓÔØµÄÍ¬Ò»¸öÀà£¬JVM²»ÈÏÎªÊÇÏàÍ¬µÄÀà¡£Èç¹ûÕâ¸öÀà.classÔÚclasspathÏÂ£¬ÄÇÃ´ÊÇÍ¬Ò»¸öÀà
-		System.out.println(c5.hashCode() == c6.hashCode());//ÓÉÓÚÓëÀà¼ÓÔØÆ÷ÔÚÍ¬Ò»¸öclasspathÏÂ£¬ËùÒÔÊÇÍ¬Ò»¸öÀà
+		System.out.println(c1.hashCode() == c3.hashCode());//è¢«ä¸¤ä¸ªç±»åŠ è½½å™¨åŠ è½½çš„åŒä¸€ä¸ªç±»ï¼ŒJVMä¸è®¤ä¸ºæ˜¯ç›¸åŒçš„ç±»ã€‚å¦‚æœè¿™ä¸ªç±».classåœ¨classpathä¸‹ï¼Œé‚£ä¹ˆæ˜¯åŒä¸€ä¸ªç±»
+		System.out.println(c5.hashCode() == c6.hashCode());//ç”±äºä¸ç±»åŠ è½½å™¨åœ¨åŒä¸€ä¸ªclasspathä¸‹ï¼Œæ‰€ä»¥æ˜¯åŒä¸€ä¸ªç±»
 		
-		System.out.println(c3.getClassLoader());//×Ô¶¨ÒåÀà¼ÓÔØÆ÷
-		System.out.println(c4.getClassLoader());//Òıµ¼Àà¼ÓÔØÆ÷
+		System.out.println(c3.getClassLoader());//è‡ªå®šä¹‰ç±»åŠ è½½å™¨
+		System.out.println(c4.getClassLoader());//å¼•å¯¼ç±»åŠ è½½å™¨
 	}
 }

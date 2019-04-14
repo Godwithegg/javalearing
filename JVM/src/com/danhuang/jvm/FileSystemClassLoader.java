@@ -10,17 +10,17 @@ import java.io.InputStreamReader;
 import sun.misc.IOUtils;
 
 /**
- * ×Ô¶¨ÒåÎÄ¼şÏµÍ³Àà¼ÓÔØÆ÷
- * ËùÓĞ¼Ì³ĞClassLoader²¢ÇÒÃ»ÓĞÖØĞ´getSystemClassLoader·½·¨µÄÀà¼ÓÔØÆ÷£¬
- * Í¨¹ıgetSystemClassLoader·½·¨µÃµ½µÄAppClassloader¶¼ÊÇÍ¬Ò»¸öAppClassloaderÊµÀı£¬ÀàËÆµ¥ÀıÄ£Ê½¡£
- * ½áÂÛ£¬¾ÍÊÇËùÓĞÍ¨¹ıÕı³£Ë«Ç×Î¯ÅÉÄ£Ê½µÄÀà¼ÓÔØÆ÷¼ÓÔØµÄclasspathÏÂµÄºÍextÏÂµÄËùÓĞÀàÔÚ·½·¨Çø¶¼ÊÇÍ¬Ò»¸öÀà£¬¶ÑÖĞµÄClassÊµÀıÒ²ÊÇÍ¬Ò»¸ö¡£
+ * è‡ªå®šä¹‰æ–‡ä»¶ç³»ç»Ÿç±»åŠ è½½å™¨
+ * æ‰€æœ‰ç»§æ‰¿ClassLoaderå¹¶ä¸”æ²¡æœ‰é‡å†™getSystemClassLoaderæ–¹æ³•çš„ç±»åŠ è½½å™¨ï¼Œ
+ * é€šè¿‡getSystemClassLoaderæ–¹æ³•å¾—åˆ°çš„AppClassloaderéƒ½æ˜¯åŒä¸€ä¸ªAppClassloaderå®ä¾‹ï¼Œç±»ä¼¼å•ä¾‹æ¨¡å¼ã€‚
+ * ç»“è®ºï¼Œå°±æ˜¯æ‰€æœ‰é€šè¿‡æ­£å¸¸åŒäº²å§”æ´¾æ¨¡å¼çš„ç±»åŠ è½½å™¨åŠ è½½çš„classpathä¸‹çš„å’Œextä¸‹çš„æ‰€æœ‰ç±»åœ¨æ–¹æ³•åŒºéƒ½æ˜¯åŒä¸€ä¸ªç±»ï¼Œå †ä¸­çš„Classå®ä¾‹ä¹Ÿæ˜¯åŒä¸€ä¸ªã€‚
  * @author danhuang
  *
  */
 public class FileSystemClassLoader extends ClassLoader{
 	
 	//com.danhuang.jvm.User --> D:/github/javalearning/javalearing/JVM/ com/danhuang/jvm/User.class
-	//ÒÔºó¼ÓÔØÀàµÄ¼ÓÔØÆ÷¶¼ÔÚD:/github/javalearning/javalearing/JVM/ÀïÃæ¼ÓÔØ
+	//ä»¥ååŠ è½½ç±»çš„åŠ è½½å™¨éƒ½åœ¨D:/github/javalearning/javalearing/JVM/é‡Œé¢åŠ è½½
 	private String rootDir;
 	public FileSystemClassLoader(String rootDir) {
 		this.rootDir = rootDir;
@@ -28,15 +28,15 @@ public class FileSystemClassLoader extends ClassLoader{
 	@Override
 	protected Class<?> findClass(String name) throws ClassNotFoundException {
 		Class<?> c = findLoadedClass(name);
-		// Ó¦¸ÃÒªÏÈ²éÑ¯ÓĞÃ»ÓĞ¼ÓÔØ¹ıÕâ¸öÀà£¬Èç¹ûÒÑ¾­±»¼ÓÔØ£¬ÔòÖ±½Ó·µ»Ø¼ÓÔØºÃµÄÀà¡£Èç¹ûÓĞ£¬Ôò¼ÓÔØĞÂµÄÀà
+		// åº”è¯¥è¦å…ˆæŸ¥è¯¢æœ‰æ²¡æœ‰åŠ è½½è¿‡è¿™ä¸ªç±»ï¼Œå¦‚æœå·²ç»è¢«åŠ è½½ï¼Œåˆ™ç›´æ¥è¿”å›åŠ è½½å¥½çš„ç±»ã€‚å¦‚æœæœ‰ï¼Œåˆ™åŠ è½½æ–°çš„ç±»
 		if (c != null) {
 			return c;
 		} else {
+			ClassLoader parent = this.getParent();// è·å¾—çˆ¶ç±»åŠ è½½å™¨
 			try {
-				ClassLoader parent = this.getParent();// »ñµÃ¸¸Àà¼ÓÔØÆ÷
-				parent.loadClass(name);// ÈÃËûÈ¥¼ÓÔØ
+				parent.loadClass(name);// è®©ä»–å»åŠ è½½
 			} catch (Exception e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 			
 			if (c != null) {
@@ -55,7 +55,7 @@ public class FileSystemClassLoader extends ClassLoader{
 
 	private byte[] getClassData(String classname) {// com.danhuang.jvm.User --> D:/github/javalearning/javalearing/JVM/ com/danhuang/jvm/User.class
 		String path = rootDir + "/" + classname.replace('.', '/') + ".class";
-		// IOUtils,¿ÉÒÔÊ¹ÓÃËü½«Á÷ÖĞµÄÊı¾İ×ª³É×Ö½ÚÊı×é
+		// IOUtils,å¯ä»¥ä½¿ç”¨å®ƒå°†æµä¸­çš„æ•°æ®è½¬æˆå­—èŠ‚æ•°ç»„
 		InputStream is = null;
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		byte[] buffer = new byte[1024];
