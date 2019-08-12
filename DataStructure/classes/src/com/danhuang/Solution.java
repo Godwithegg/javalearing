@@ -1,55 +1,33 @@
 package com.danhuang;
+import com.danhuang.sort.QuickSort;
 
 import java.util.*;
-
 public class Solution {
-
-    int[] array=new int[99];
-    List<String> list = null;
-    String s8 = null;
     public static void main(String[] args) {
-
-
         Scanner in = new Scanner(System.in);
-        int n;
-        Solution result = new Solution();
-        result.list = new ArrayList<>();
-        result.check(1);
-        while(in.hasNext()){
-            n = in.nextInt();
-            System.out.println(result.list.get(n-1));
-
+        int[] arr=new int[10000];
+        for(int i=0;i<10000;i++){
+            arr[i]= (int) (Math.random()*10000);
         }
-
+        sort(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
     }
 
-    public void check(int n){
-        if(n==9){
-            s8 = "";
-            for (int i = 1; i <= 8 ; i++) {
-                s8=s8+array[i];
-            }
-            list.add(s8);
-            return;
+    public static void sort(int[] arr,int left,int right){
+        int l = left;
+        int r = right;
+        int key = arr[left];
+        while(l<r){
+            while(arr[l] < key)l++;
+            while(arr[r] > key)r--;
+            if(l>=r)break;
+            int temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            if(arr[l]==key)r--;
+            if(arr[r]==key)l++;
         }
-        for(int i=1;i<=8;i++){
-
-            array[n]=i;
-
-            if(judge(n)){
-                check(n+1);
-            }
-        }
-
+        if(left<r)sort(arr, left, r-1);
+        if(l<right)sort(arr, l+1, right);
     }
-
-    public  boolean judge(int n){
-        for(int i=1;i<n;i++){
-            if(array[i] == array[n] || Math.abs(n-i) == Math.abs(array[n]-array[i])){
-                return false;
-            }
-        }
-        return true;
-    }
-
 }
