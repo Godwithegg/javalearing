@@ -1,33 +1,60 @@
 package com.danhuang;
-import com.danhuang.sort.QuickSort;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Solution {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int[] arr=new int[10000];
-        for(int i=0;i<10000;i++){
-            arr[i]= (int) (Math.random()*10000);
+        int n=in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=in.nextInt();
         }
-        sort(arr,0,arr.length-1);
-        System.out.println(Arrays.toString(arr));
+        int temp[]=new int[arr.length];
+        sort(arr,0 , arr.length-1, temp);
+        for(int i:arr) System.out.printf("%d ",i);
     }
 
-    public static void sort(int[] arr,int left,int right){
-        int l = left;
-        int r = right;
-        int key = arr[left];
-        while(l<r){
-            while(arr[l] < key)l++;
-            while(arr[r] > key)r--;
-            if(l>=r)break;
-            int temp = arr[l];
-            arr[l] = arr[r];
-            arr[r] = temp;
-            if(arr[l]==key)r--;
-            if(arr[r]==key)l++;
+    public static void sort(int[] arr,int left,int right,int[] temp){
+        int mid=(left+right)/2;
+        if(left<right){
+            sort(arr,left ,mid ,temp);
+            sort(arr,mid+1 ,right,temp );
+            merge(arr, left, mid, right, temp);
         }
-        if(left<r)sort(arr, left, r-1);
-        if(l<right)sort(arr, l+1, right);
+    }
+
+    public static void merge(int[] arr, int left, int mid, int right, int[] temp) {
+        int i = left;
+        int j = mid + 1;
+        int t = 0;
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
+                temp[t] = arr[i];
+                i++;
+                t++;
+            }else{
+                temp[t] = arr[j];
+                j++;
+                t++;
+            }
+        }
+        while(i<=mid){
+            temp[t] = arr[i];
+            i++;
+            t++;
+        }
+        while(j<=right){
+            temp[t] = arr[j];
+            j++;
+            t++;
+        }
+        t=0;
+        while(left<=right){
+            arr[left]=temp[t];
+            left++;
+            t++;
+        }
     }
 }
